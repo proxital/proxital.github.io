@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>wuwubox资源盒子 - 精品软件与工具箱聚合平台</title>
+    <meta name="description" content="wuwubox资源盒子提供安全、无毒、免安装的绿色软件下载服务，涵盖系统工具、效率办公、设计素材及实用工具箱，一键解压即用，助您高效解决电脑与移动端需求。">
+    <meta name="keywords" content="wuwubox资源盒子, 软件下载, 绿色软件, 资源盒子, 工具箱, 无需安装, 免费软件">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 5px 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            width: 150px;
+            font-size: 0.9rem;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Categories Section */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            position: relative;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .category-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+
+        .category-overlay h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Software List */
+        .software-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .software-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .software-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-color);
+        }
+
+        .software-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .software-info {
+            flex: 1;
+        }
+
+        .software-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .software-info .meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .tag.new {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        .software-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .download-btn {
+            background-color: var(--text-main);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background-color: #334155;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            .search-bar {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .software-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .software-info .meta {
+                justify-content: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>wuwubox</span>资源盒子
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#categories">分类大全</a>
+                <a href="#hot">热门推荐</a>
+                <a href="#faq">帮助中心</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索软件...">
+                <button>&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>发现更高效的<br><span class="highlight">数字工具箱</span></h1>
+                <p>wuwubox资源盒子致力于提供纯净、安全、免安装的绿色软件资源。无论是系统维护、效率办公还是创意设计，这里都有您需要的解决方案。</p>
+                <div class="cta-buttons">
+                    <a href="#hot" class="btn btn-primary">立即浏览</a>
+                    <a href="#categories" class="btn btn-outline">查看分类</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128247;</div>
+                        <h3>免安装绿色版</h3>
+                        <p>下载即用，无需复杂的安装向导，解压后即可运行，彻底告别软件捆绑广告。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128274;</div>
+                        <h3>安全无毒认证</h3>
+                        <p>所有资源经过人工扫描与安全检测，确保文件纯净，保护您的电脑与隐私安全。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128666;</div>
+                        <h3>持续更新维护</h3>
+                        <p>紧跟软件版本更新，第一时间提供最新功能与修复补丁，确保工具始终可用。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">&#128661;</div>
+                        <h3>多平台支持</h3>
+                        <p>覆盖 Windows、Mac 及各类移动端工具，满足不同场景下的工作与生活需求。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section id="categories" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>热门分类</h2>
+                    <p>按场景快速找到您需要的工具</p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/sys/400/200" alt="系统工具">
+                        <div class="category-overlay">
+                            <h3>系统工具</h3>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/office/400/200" alt="效率办公">
+                        <div class="category-overlay">
+                            <h3>效率办公</h3>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/design/400/200" alt="设计素材">
+                        <div class="category-overlay">
+                            <h3>设计素材</h3>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <img src="https://picsum.photos/seed/dev/400/200" alt="开发工具">
+                        <div class="category-overlay">
+                            <h3>开发工具</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Software List -->
+        <section id="hot" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>本周热门推荐</h2>
+                    <p>精选用户下载量最高的实用工具</p>
+                </div>
+                <div class="software-list">
+                    <!-- Item 1 -->
+                    <article class="software-card">
+                        <div class="software-icon">&#129309;</div>
+                        <div class="software-info">
+                            <h3>Everything 本地搜索工具</h3>
+                            <div class="meta">
+                                <span class="tag">系统工具</span>
+                                <span>体积: 1.2MB</span>
+                                <span>更新: 2023-10</span>
+                            </div>
+                            <p>极速文件搜索神器，毫秒级响应，支持正则表达式，是电脑管理员的必备工具。</p>
+                        </div>
+                        <a href="#" class="download-btn">下载</a>
+                    </article>
+
+                    <!-- Item 2 -->
+                    <article class="software-card">
+                        <div class="software-icon">&#128187;</div>
+                        <div class="software-info">
+                            <h3>Snipaste 截图贴图</h3>
+                            <div class="meta">
+                                <span class="tag">效率办公</span>
+                                <span>体积: 8.5MB</span>
+                                <span>更新: 2023-09</span>
+                            </div>
+                            <p>专业级截图软件，支持F1一键截图、贴图、标注，帮助您高效完成文档编辑与教程制作。</p>
+                        </div>
+                        <a href="#" class="download-btn">下载</a>
+                    </article>
+
+                    <!-- Item 3 -->
+                    <article class="software-card">
+                        <div class="software-icon">&#128241;</div>
+                        <div class="software-info">
+                            <h3>7-Zip 压缩解压</h3>
+                            <div class="meta">
+                                <span class="tag">系统工具</span>
+                                <span>体积: 1.5MB</span>
+                                <span>更新: 2023-08</span>
+                            </div>
+                            <p>高压缩比的开源压缩软件，支持多种压缩格式，轻量高效，无广告干扰。</p>
+                        </div>
+                        <a href="#" class="download-btn">下载</a>
+                    </article>
+
+                    <!-- Item 4 -->
+                    <article class="software-card">
+                        <div class="software-icon">&#127912;</div>
+                        <div class="software-info">
+                            <h3>PotPlayer 多媒体播放器</h3>
+                            <div class="meta">
+                                <span class="tag">娱乐影音</span>
+                                <span>体积: 25MB</span>
+                                <span>更新: 2023-10</span>
+                            </div>
+                            <p>功能强大的万能播放器，支持解码几乎所有视频音频格式，支持滤镜特效与皮肤更换。</p>
+                        </div>
+                        <a href="#" class="download-btn">下载</a>
+                    </article>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-outline">查看更多软件</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <p>关于资源下载与使用的解答</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">下载的文件是压缩包吗？需要安装吗？</div>
+                        <div class="faq-answer">是的，为了节省空间和确保纯净，大多数资源以压缩包形式提供。下载后请使用解压软件解压，通常解压后即可直接运行，无需安装过程。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">这些软件安全吗？会有病毒吗？</div>
+                        <div class="faq-answer">wuwubox资源盒子的所有软件均经过人工安全扫描与测试，确保无毒无木马。但我们仍建议您在下载后使用系统自带的杀毒软件进行二次确认。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">软件无法启动或闪退怎么办？</div>
+                        <div class="faq-answer">请检查您的系统版本是否兼容（例如Win7以下系统可能无法运行新版软件）。如果是绿色版软件，请确保解压路径没有包含中文字符，并尝试以管理员身份运行。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>wuwubox资源盒子</h3>
+                    <p>专注于为用户提供高质量、无捆绑的绿色软件资源。我们致力于简化数字工具的使用门槛，让每个人都能轻松驾驭电脑技术。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>软件分类</h4>
+                    <ul>
+                        <li><a href="#">系统工具</a></li>
+                        <li><a href="#">办公效率</a></li>
+                        <li><a href="#">多媒体</a></li>
+                        <li><a href="#">开发编程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">用户交流群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 wuwubox资源盒子 版权所有 | 仅供学习交流使用，请支持正版软件</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
